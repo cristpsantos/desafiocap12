@@ -1,10 +1,15 @@
 import './App.css';
+import FilterByStore from './components/FilterByStore';
+import Header from './components/Header';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Teste</h1>
-    </div>
+    <>
+      <Header />
+      <div className="App">
+        <FilterByStore />
+      </div>
+    </>
   );
 }
 
