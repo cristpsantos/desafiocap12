@@ -12,6 +12,8 @@
   .App {
     padding: 40px 15px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
   }
 }
