@@ -14,6 +14,15 @@ export type SalesPieChartConfig = {
   series: number[];
 };
 
+export type StoresResponse = {
+  content: Stores[];
+};
+
+export type Stores = {
+  id: number;
+  name: string;
+};
+
 export const formatGender = (gender: Gender) => {
   const textByGender = {
     MALE: 'Masculino',

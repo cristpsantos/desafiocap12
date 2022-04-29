@@ -16,9 +16,25 @@
     max-width: 270px;
 }
 
+.filter-select__input-container {
+    color: var(--gray-light-color) !important;
+}
+
+.filter-select__placeholder {
+    color: var(--gray-light-color) !important;
+}
+
+.filter-select__indicator-separator {
+    display: none;
+}
+
 @media (min-width: 576px) {
     .filter-store-container {
         padding: 40px;
+    }
+
+    .filter-select__control {
+        width: 270px;
     }
 }
 
