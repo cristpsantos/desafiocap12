@@ -1,32 +1,44 @@
-import { useEffect, useState } from 'react';
-import { SalesByGenderType, SalesPieChartConfig, Summary } from '../../types';
+import { useEffect, useMemo, useState } from 'react';
+import {
+  buildFilterData,
+  SalesByGenderType,
+  SalesPieChartConfig,
+  StoreFilterData,
+  Summary
+} from '../../types';
 import { buildBySalesGenderFormat, formatPrice } from '../../util/formatters';
 import { requestBackend } from '../../util/requests';
 import PieChart from '../PieChart';
 import './styles.css';
 
-const SalesByGender = () => {
+type Props = {
+  storeFilterData: StoreFilterData;
+};
+
+const SalesByGender = ({ storeFilterData }: Props) => {
   const [summary, setSummary] = useState<Summary>({ sum: 0 });
   const [salesByGenderType, setSalesByGenderType] = useState<SalesPieChartConfig>();
 
+  const params = useMemo(() => buildFilterData(storeFilterData), [storeFilterData]);
+
   useEffect(() => {
     requestBackend
-      .get<Summary>('/sales/summary')
+      .get<Summary>('/sales/summary', { params })
       .then((response) => {
         setSummary(response.data);
       })
       .catch((error) => console.log(error.data));
-  }, []);
+  }, [params]);
 
   useEffect(() => {
     requestBackend
-      .get<SalesByGenderType[]>('/sales/by-gender')
+      .get<SalesByGenderType[]>('/sales/by-gender', { params })
       .then((response) => {
         const newSaleGender = buildBySalesGenderFormat(response.data);
         setSalesByGenderType(newSaleGender);
       })
       .catch((error) => console.log(error.data));
-  }, []);
+  }, [params]);
 
   return (
     <div className="salesbygender-container base-card">

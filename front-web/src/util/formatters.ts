@@ -1,4 +1,4 @@
-import { formatGender, SalesByGenderType } from '../types';
+import { Gender, SalesByGenderType } from '../types';
 
 export const formatPrice = (price: number) => {
   return new Intl.NumberFormat('pt-BR', {
@@ -15,4 +15,14 @@ export const buildBySalesGenderFormat = (salesGender: SalesByGenderType[]) => {
     labels,
     series
   };
+};
+
+export const formatGender = (gender: Gender) => {
+  const textByGender = {
+    MALE: 'Masculino',
+    FEMALE: 'Feminino',
+    OTHER: 'Outros'
+  };
+
+  return textByGender[gender];
 };

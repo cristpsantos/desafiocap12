@@ -23,12 +23,12 @@ export type Stores = {
   name: string;
 };
 
-export const formatGender = (gender: Gender) => {
-  const textByGender = {
-    MALE: 'Masculino',
-    FEMALE: 'Feminino',
-    OTHER: 'Outros'
-  };
+export type StoreFilterData = {
+  store: Stores | null;
+};
 
-  return textByGender[gender];
+export const buildFilterData = (filterData?: StoreFilterData) => {
+  return {
+    storeId: filterData?.store?.id
+  };
 };

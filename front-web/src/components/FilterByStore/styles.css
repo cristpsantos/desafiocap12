@@ -2,22 +2,27 @@
     height: 130px;
     padding: 40px 15px;
 }
-
-.filter-select {
-    margin: 0;
+.filter-select__control {
     height: 50px;
-    width: 100%;
     border: 1px solid var(--gray-light-color);
     border-radius: 4px;
-    color: var(--gray-light-color);
-    font-size: 16px;
-    font-weight: 400;
-    padding: 15px 12px;
-    max-width: 270px;
 }
 
+.filter-select_single-value {
+    color: var(--gray-light-color) !important;
+    font-size: 16px !important;
+    font-weight: 400 !important; 
+}
+
+.filter-select__value-container--has-value {
+    color: var(--gray-light-color) !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;  
+}
 .filter-select__input-container {
     color: var(--gray-light-color) !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
 }
 
 .filter-select__placeholder {
